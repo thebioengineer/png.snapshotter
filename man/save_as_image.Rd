@@ -16,3 +16,13 @@ save_as_image(x, device, file = tempfile())
 \description{
 save to image code that generates a plot
 }
+\examples{
+
+save_as_image({
+plot(c(1, 2, 3, 4))
+},
+device = png,
+file = "test.png"
+)
+
+}

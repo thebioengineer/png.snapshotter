@@ -25,3 +25,12 @@ test_that("tiff generation works", {
   file = "test.tif"
   ))
 })
+
+test_that("bmp generation works", {
+  expect_snapshot_file(save_as_image({
+    plot(c(1,2,3,4))
+  },
+  device = bmp,
+  file = "test.bmp"
+  ))
+})
