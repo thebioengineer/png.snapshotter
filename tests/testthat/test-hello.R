@@ -3,7 +3,7 @@ test_that("png generation works", {
     plot(c(1, 2, 3, 4))
   },
   device = png,
-  file = "test.png"
+  file = file.path(tempdir(),"test.png")
   ))
 })
 
@@ -12,7 +12,7 @@ test_that("jpeg generation works", {
     plot(c(1,2,3,4))
   },
   device = jpeg,
-  file = "test.jpeg"
+  file = file.path(tempdir(),"test.jpeg")
   ))
 })
 
@@ -22,7 +22,7 @@ test_that("tiff generation works", {
     plot(c(1,2,3,4))
   },
   device = tiff,
-  file = "test.tif"
+  file = file.path(tempdir(),"test.tif")
   ))
 })
 
@@ -31,6 +31,6 @@ test_that("bmp generation works", {
     plot(c(1,2,3,4))
   },
   device = bmp,
-  file = "test.bmp"
+  file = file.path(tempdir(),"test.bmp")
   ))
 })
