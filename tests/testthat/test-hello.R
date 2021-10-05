@@ -1,10 +1,15 @@
 test_that("png generation works", {
-  expect_snapshot_file(save_as_image({
+
+  save_as_image({
     plot(c(1, 2, 3, 4))
   },
   device = png,
-  file = "test.png"
-  ))
+  file = file.path(tempdir(),"test.png")
+  )
+
+
+
+  expect_true(compare_file_binary(file.path(tempdir(),"test.png"), "_snaps/hello/test.png"))
 })
 
 test_that("jpeg generation works", {
@@ -12,7 +17,7 @@ test_that("jpeg generation works", {
     plot(c(1,2,3,4))
   },
   device = jpeg,
-  file = "test.jpeg"
+  file = file.path(tempdir(),"test.jpeg")
   ))
 })
 
@@ -22,6 +27,15 @@ test_that("tiff generation works", {
     plot(c(1,2,3,4))
   },
   device = tiff,
-  file = "test.tif"
+  file = file.path(tempdir(),"test.tif")
+  ))
+})
+
+test_that("bmp generation works", {
+  expect_snapshot_file(save_as_image({
+    plot(c(1,2,3,4))
+  },
+  device = bmp,
+  file = file.path(tempdir(),"test.bmp")
   ))
 })

@@ -6,6 +6,15 @@
 #'
 #' @importFrom grDevices dev.off
 #'
+#' @examples
+#'
+#' save_as_image({
+#' plot(c(1, 2, 3, 4))
+#' },
+#' device = png,
+#' file = "test.png"
+#' )
+#'
 #' @export
 save_as_image <- function(x, device, file = tempfile()) {
 
